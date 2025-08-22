@@ -8,7 +8,8 @@ document.querySelector("#login").addEventListener("click", (e) => {
 const mobileNumberValue = parseInt(NumberValue);
 const pinNumberValue=parseInt(pinValue);
   if (mobileNumber === mobileNumberValue && pinNumber === pinNumberValue) {
-    console.log('Successfully Login');
     window.location.href="./home.html";
-  }else console.log('Login Failed - Invalid credential');
+  }else alert('Login Failed - Invalid credential');
 });
+
+// -------------------------------------------------
