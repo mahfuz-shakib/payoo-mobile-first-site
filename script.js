@@ -23,6 +23,7 @@ function display(vissibleSection)
 
 }
 // add money features
+
 findElement("add-money-btn").addEventListener("click", (e) => {
   e.preventDefault();
   const bank = findElement("bank").value;
@@ -51,37 +52,6 @@ findElement("add-money-btn").addEventListener("click", (e) => {
   currentAmountElement.innerText = parseInt(getInnerText("current-amount")) + addedAmount;
   findElement("add-money-form").reset();
 });
-
-
-findElement("add-money-btn").addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  const bank = findElement("bank").value;
-  const accountNumber = getValue("account-number");
-  const pinNumber = getValue("pin-number");
-  const addedAmount = getValue("add-amount");
-  const currentAmountElement = findElement("current-amount");
-
-  if (bank === "Select Bank") {
-    alert("Please select a bank");
-    return;
-  }
-  if (accountNumber !== account) {
-    alert("Invalid account number");
-    return;
-  }
-  if (pinNumber !== 1234) {
-    alert("Invalid pin number");
-    return;
-  }
-  if (isNaN(addedAmount)) {
-    alert("You haven't entered any amount");
-    return;
-  }
-
-  currentAmountElement.innerText = parseInt(getInnerText("current-amount")) + addedAmount;
-  findElement("add-money-form").reset();
-});
-
 
 
 // cash out features
