@@ -37,6 +37,7 @@ findElement("add-money-btn").addEventListener("click", (e) => {
   }
 
   currentAmountElement.innerText = parseInt(getInnerText("current-amount")) + addedAmount;
+  currentAmountElement.classList.add("font-extrabold text-lg");
   findElement("add-money-form").reset();
 });
 
