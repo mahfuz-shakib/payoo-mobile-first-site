@@ -22,8 +22,8 @@ function display(vissibleSection)
     findElement(vissibleSection).classList.add("block");
 
 }
-// add money features
 
+// add money features
 findElement("add-money-btn").addEventListener("click", (e) => {
   e.preventDefault();
   const bank = findElement("bank").value;
@@ -99,6 +99,7 @@ findElement("transaction-card-btn").addEventListener("click",()=>{
     display("transaction-section");
 })
 
-document.getElementById("log-out").addEventListener("click", () => {
+
+findElement("log-out").addEventListener("click", () => {
   window.location.href = "./index.html";
 });
