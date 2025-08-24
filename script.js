@@ -1,38 +1,45 @@
-const pin = "1234";
-const account = "12345678910";
+const pin = 1234;
+const account = 12345678910;
 
-document.getElementById("add-money-btn").addEventListener("click", (e) => {
+function findElement(id) {
+  return document.getElementById(id);
+}
+function getValue(id) {
+  return parseInt(document.getElementById(id).value);
+}
+function getInnerText(id) {
+  return document.getElementById(id).innerText;
+}
+
+findElement("add-money-btn").addEventListener("click", (e) => {
   e.preventDefault();
-  const bank = document.getElementById("bank");
-  const accountNumber = document.getElementById("account-number");
-  const addedAmount = document.getElementById("add-amount");
-  const pinNumber = document.getElementById("pin-number");
-  let currentAmount = document.getElementById("current-amount");
-  if(bank.value==="Select Bank")
-  {
+  const bank = findElement("bank").value;
+  const accountNumber = getValue("account-number");
+  const pinNumber = getValue("pin-number");
+  const addedAmount = getValue("add-amount");
+  let currentAmountElement = findElement("current-amount");
+  
+  if (bank === "Select Bank") {
     alert("Please select a bank");
+    return;
   }
-  if (accountNumber.value!==account) {
+  if (accountNumber !== account) {
     alert("Invalid account number");
     return;
   }
-  if (pinNumber.value !== "1234") {
+  if (pinNumber !== 1234) {
     alert("Invalid pin number");
     return;
   }
-  if(isNaN(parseInt(addedAmount.value)))
-  {
-    alert("you haven't entered any amount");
+  if (isNaN(addedAmount)) {
+    alert("You haven't entered any amount");
     return;
   }
-  
-  currentAmount.innerText = parseInt(currentAmount.innerText) + parseInt(addedAmount.value);
-  bank.value="Select Bank";
-  accountNumber.value="";
-  addedAmount.value="";
-  pinNumber.value="";
+
+  currentAmountElement.innerText = parseInt(getInnerText("current-amount")) + addedAmount;
+  findElement("add-money-form").reset();
 });
 
-document.getElementById('log-out').addEventListener('click',()=>{
-    window.location.href="./index.html";
-})
+document.getElementById("log-out").addEventListener("click", () => {
+  window.location.href = "./index.html";
+});
